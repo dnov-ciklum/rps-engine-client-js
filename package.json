@@ -2,7 +2,7 @@
   "name": "rps-engine-client-js",
   "version": "1.0.1",
   "description": "RPSEngine client lib",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "rollup -c",
     "prepare": "husky install",
@@ -12,8 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.23.0",
-    "jsonschema": "^1.4.0",
-    "test": "jest"
+    "jsonschema": "^1.4.0"
   },
   "peerDependencies": {
     "uuid": "^8.3.2"
