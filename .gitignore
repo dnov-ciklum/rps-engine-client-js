@@ -1,3 +1,15 @@
+# Editor directories and files
+.idea
+.DS_Store
+/.vs
+.vs
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
 # Logs
 logs
 *.log
