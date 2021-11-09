@@ -1,17 +1,21 @@
 {
   "name": "rps-engine-client-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "RPSEngine client lib",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "prepare": "husky install",
+    "test": "jest"
   },
   "author": "dnov@ciklum.com Dmytro Novikov",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.23.0",
     "jsonschema": "^1.4.0",
-    "rollup-plugin-ignore": "^1.0.10",
+    "test": "jest"
+  },
+  "peerDependencies": {
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -21,7 +25,10 @@
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.5",
+    "husky": "^7.0.4",
+    "jest": "^27.3.1",
     "rollup": "^2.58.0",
+    "rollup-plugin-ignore": "^1.0.10",
     "rollup-plugin-polyfill-node": "^0.7.0"
   }
 }
