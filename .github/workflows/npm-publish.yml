@@ -36,8 +36,8 @@ jobs:
         with:
           node-version: 14
       - run: npm ci
-      - run: git config --global user.email "dnov@ciklum.com"
-      - run: git config --global user.name "Novikov Dmytro"
+      - run: git config --global user.email "${{ secrets.EMAIL }}"
+      - run: git config --global user.name "${{ secrets.NAME }}"
       - run: npm run release -- --release-as ${{ steps.vars.outputs.version }}
       - uses: JS-DevTools/npm-publish@v1
         with:
