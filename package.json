@@ -3,7 +3,7 @@
   "version": "1.0.5",
   "description": "RPSEngine client lib",
   "repository": "dnov-ciklum/rps-engine-client-js",
-  "main": "src/index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "build": "rollup -c",
     "prepare": "husky install",
