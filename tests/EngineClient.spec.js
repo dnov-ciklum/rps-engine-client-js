@@ -89,9 +89,17 @@ describe(`transform()`, () => {
   })
 
   describe(`Validate "requestData" (invalid structure/format must throw error)`, () => {
+    const errors = [
+      `Invalid "requestData" format/structure`,
+      `"requestData" contains requests with invalid processing/rights context references`
+    ]
     for (const [key, requestData] of Object.entries(invalidRequestsStructures)) {
       it(`Invalid structure: ${key}`, async () => {
-        await expect(engine.transform(requestData)).rejects
+        try {
+          await engine.transform(requestData)
+        } catch (e) {
+          expect(errors.some(error => e.message.includes(error))).toBeTruthy()
+        }
       })
     }
   })

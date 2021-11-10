@@ -108,7 +108,7 @@ class EngineClient {
     const {requests = [], processingContexts = [], rightsContexts = []} = requestData || {}
     const checkReference = (contexts, guid) => contexts.find(c => c.guid === guid)
 
-    const isValid = requests.every(({processingContext, rightsContext}) => {
+    const isValid = Array.isArray(requests) && requests.every(({processingContext, rightsContext}) => {
       return (typeof processingContext === 'undefined' || checkReference(processingContexts, processingContext)) &&
         checkReference(rightsContexts, rightsContext)
     })

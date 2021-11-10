@@ -24,11 +24,19 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Set variables
+        id: vars
+        run: |
+          arrTag=(${GITHUB_REF//\// })
+          VERSION="${arrTag[2]}"
+          VERSION="${VERSION//v}"
+          echo ::set-output name=version::${VERSION}
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: 14
       - run: npm ci
+      - run: npm run release -- --release-as ${{ steps.vars.outputs.version }}
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
