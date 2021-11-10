@@ -1,4 +1,4 @@
-import RPSContext from '../src/RPSContext'
+import RPSContext from '../src/RpsContext'
 
 const createRPSContext = (params) => () => new RPSContext(params)
 

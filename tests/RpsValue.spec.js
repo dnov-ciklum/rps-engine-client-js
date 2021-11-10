@@ -1,4 +1,4 @@
-import RPSValue from '../src/RPSValue'
+import RPSValue from '../src/RpsValue'
 
 const createRPSValue = (params) => () => new RPSValue(params)
 describe(`Required parameters`, () => {

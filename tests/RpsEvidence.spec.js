@@ -1,4 +1,4 @@
-import RPSEvidence from '../src/RPSEvidence'
+import RPSEvidence from '../src/RpsEvidence'
 
 const createRPSEvidence = (params) => () => new RPSEvidence(params)
 
