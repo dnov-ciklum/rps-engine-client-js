@@ -1,6 +1,6 @@
 {
   "name": "rps-engine-client-js",
-  "version": "1.0.6",
+  "version": "1.0.4",
   "description": "RPSEngine client lib",
   "repository": "dnov-ciklum/rps-engine-client-js",
   "main": "./lib/index.js",
