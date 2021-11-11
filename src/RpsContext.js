@@ -26,7 +26,7 @@ class RPSContext {
       }
     ])
 
-    return !throwError ? validator.validate() : validator.validateWithThrowError()
+    return throwError ? validator.validateWithThrowError() : validator.validate()
   }
 }
 

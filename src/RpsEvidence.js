@@ -8,6 +8,7 @@ class RPSEvidence {
    * @param {object} evidence - {name: 'name', value: 'value}
    * @param {string} evidence.name - evidence name
    * @param {string} evidence.value - evidence value
+   *
    */
   constructor ({name, value}) {
     RPSEvidence.validateEvidence({name, value})

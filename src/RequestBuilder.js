@@ -94,19 +94,19 @@ class RequestBuilder {
     }
   }
 
+  static #getDependencyContextFromObject (contextObject) {
+    return Array.isArray(contextObject.evidences) || isObject(contextObject.evidences)
+      ? RequestBuilder.#getDependencyContext(contextObject)
+      : {evidences: makeArrayFromDictionary(contextObject)}
+  }
+
   static #getDependencyContext ({dependencyContext: context, evidences, dependencies}) {
     const trueContext = context || evidences || dependencies
 
-    if (!trueContext) {
-      return null
-    } else if (Array.isArray(trueContext) && trueContext.length > 0) {
+    if (Array.isArray(trueContext) && trueContext.length > 0) {
       return {evidences: trueContext}
     } else if (isObject(trueContext) && Object.keys(trueContext).length > 0) {
-      if (!!trueContext.evidences && (Array.isArray(trueContext.evidences) || isObject(trueContext.evidences))) {
-        return RequestBuilder.#getDependencyContext(trueContext)
-      } else {
-        return {evidences: makeArrayFromDictionary(trueContext)}
-      }
+      return RequestBuilder.#getDependencyContextFromObject(trueContext)
     } else {
       return null
     }

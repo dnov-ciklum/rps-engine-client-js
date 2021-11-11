@@ -54,18 +54,15 @@ class TokenProvider {
 
   async generateToken (secrets) {
     if (!!secrets) this.#setSecrets(secrets)
-    try {
-      TokenProvider.#validateGenerateToken(this)
 
-      const response = await this.#httpClient({
-        method: 'post',
-        data: this.#data
-      })
-      const {access_token: token, expires_in: expiresIn, token_type: tokenType, scope} = response?.data || {}
-      return {token, expiresIn, tokenType, scope}
-    } catch (e) {
-      return Promise.reject(e)
-    }
+    TokenProvider.#validateGenerateToken(this)
+
+    const response = await this.#httpClient({
+      method: 'post',
+      data: this.#data
+    })
+    const {access_token: token, expires_in: expiresIn, token_type: tokenType, scope} = response?.data || {}
+    return {token, expiresIn, tokenType, scope}
   }
 
   #setSecrets ({clientSecret, clientId} = {}) {
